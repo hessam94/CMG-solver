@@ -9,6 +9,6 @@ void cmg_precondition(int pfun, shlevel H, int flag, int A, int opts)
 
 void main()
 {
-	cout << "Hello Cmg-solver.";
+	cout << "Hello Cmg-solver..";
 
 }
