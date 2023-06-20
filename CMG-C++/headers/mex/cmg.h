@@ -13,6 +13,8 @@
 /* 	
  *  CMG base data types
  */
+#ifndef cmg_H
+#define cmg_H
 
 typedef unsigned int mIndex;
 typedef unsigned int mSize;
@@ -89,4 +91,4 @@ void ldl_solve (ldl_p *, precision *, precision *);
 /* main solver */
 void preconditioner ( s_hlevel *, precision *, int , int, precision *);
 
-
+#endif // !cmg_H

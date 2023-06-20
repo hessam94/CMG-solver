@@ -1,14 +1,17 @@
 #include <iostream>
 #include <vector>
-#include "mex/cmg.h"
-
+#include"coreFunctions.h"
 
 using namespace std;
-void cmg_precondition(int pfun, shlevel H, int flag, int A, int opts)
-{}
 
-void main()
+void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A, int opts)
 {
-	cout << "Hello Cmg-solver..";
-
+	if (A.n < 500)
+	{
+		pfun = {};
+		H = {};
+		flag = 0;
+		display("Input matrix is small. Solve Ax=b with A\b");
+		return;
+	}
 }
