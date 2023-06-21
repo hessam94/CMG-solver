@@ -9,9 +9,9 @@ void main()
 	vector<int> pfun;
 	vector<shlevel>  H;
 	int flag = 0;
-	int opts = 0;
+	int opts = 1;
 	matrix A;
-	A.n = 450;
+	A.n = 550;
 	cmg_precondition(pfun, H, flag,A,  opts);
-
+	system("Pause");
 }
