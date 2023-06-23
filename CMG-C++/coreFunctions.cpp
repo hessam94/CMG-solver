@@ -14,7 +14,7 @@ int validate_input(const matrix& A, matrix& A_)
     return 1;
 }
 
-shlevel levle_init()
+shlevel level_init()
 {
 
 
@@ -43,5 +43,34 @@ matrix sparse()
 {
     matrix m;
     return m;
+}
 
+int nnz(matrix m)
+{
+    return 0;// default
+}
+
+matrix diag(matrix m)
+{
+    matrix diag_m;
+    return diag_m;
+}
+
+pair<mIndex*, int> steiner_group(matrix A, matrix dA_)
+{
+    pair <mIndex*, int> p;// p.first  = cI, p.second = nc
+
+    return p;
+}
+
+matrix matrix_mult(int multiplier, matrix m)
+{
+    matrix res;
+    return res;
+}
+
+matrix matrix_div(int divider, matrix m)
+{
+    matrix res;
+    return res;
 }
