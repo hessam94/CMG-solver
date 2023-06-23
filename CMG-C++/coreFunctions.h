@@ -12,5 +12,7 @@ void cmg_precondition(std::vector<int>  pfun, std::vector<shlevel> H, int& flag,
 
 void display(std::string s);
 int validate_input(const matrix& A, matrix& A_);
+shlevel level_init();
+matrix sparse();
 
 #endif // !codeFunctions_H

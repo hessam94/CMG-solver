@@ -7,7 +7,8 @@ using namespace std;
 void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A, int opts)
 {
     matrix A_;
-
+    shlevel S_init;
+    // A.n = Length(A) ???
 	if (A.n < 500)
 	{
 		pfun = {};
@@ -42,4 +43,18 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
         flag = 2;
         A_ = A;
     }
+
+    S_init = level_init();
+    H.push_back(S_init);
+
+    // A_ is Laplacian
+    // there is no .sd for this struct, in this version
+        //if (A_.n > A.n)
+        //    H[0].sd = true; // original matrix is strongly dominant
+        //else
+        //    H[0].sd = false;
+        
+
+    
+
 }
