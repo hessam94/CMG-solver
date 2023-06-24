@@ -95,8 +95,5 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
 
 	}
 
-	int y = 0;
-	float z = 1;
-
 }
 
