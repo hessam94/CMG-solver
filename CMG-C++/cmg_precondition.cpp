@@ -112,6 +112,7 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
 		H[j] = S_init; // initialize level
 	}
 
+
 	// code for last hierarchy level
 	if (flag == 0) // no previous error
 	{
