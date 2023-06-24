@@ -37,6 +37,7 @@ matrix matrix_div(int divider, matrix m);
 matrix transpose(matrix m);
 
 void crop_matrix(const matrix& input_matrix, int left, int right, int up, int bottom, matrix& output_matrix);
+matrix make_preconditioner(vector<shlevel>& H);
 
 mSize* ldl_(const matrix& A, matrix& L, matrix& D); // function [L,D,p] = ldl_(A) we want to return p as int;
 

@@ -104,3 +104,9 @@ mSize* ldl_(const matrix& A, matrix& L, matrix& D)
     mSize* p = 0;
     return p;
 }
+
+matrix make_preconditioner(vector<shlevel>& H)
+{
+    matrix m;
+    return m;
+}

@@ -87,8 +87,8 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
 			// check for full contraction
 		if (nc == 1)
 		{
-			H[ j ].islast = 1;
-			H[ j ].iterative = 1;
+			H[j].islast = 1;
+			H[j].iterative = 1;
 			flag = 1;
 			break;
 		}
@@ -103,10 +103,10 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
 			cout << "CMG convergence may be slow due to matrix density.Future versions of CMG will eliminate this problem.";
 			break;
 		}
-		
-		
+
+
 		Rt = sparse(cI, 1, n, 1, nc, n); // cI should be cast to double sparse(double(cI),1:n,1,nc,n);
-		A_ = matrix_mult(Rt , matrix_mult(H[j].A, transpose(Rt)));
+		A_ = matrix_mult(Rt, matrix_mult(H[j].A, transpose(Rt)));
 
 		j = j + 1;
 		H[j] = S_init; // initialize level
@@ -128,10 +128,20 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
 		//H[j].chol.d = matrix_div(1,diag(D)); // cholesky struct doens't have d
 		H[j].chol.p = p; // x = A * y = > y(p) = LT\(H{ j }.d.*(L\x(p)));
 	}
-			
 
 
+	//determine number of recursive calls between levels
+	for (int k = 0; k < (j - 2); k++)
+		H[k].repeat = max(floor(nnz(H[k].A) / nnz(H[k + 1].A) - 1), 1.0);
 	
+		if (flag == 0)
+			H[j - 1].repeat = max(floor(nnz(H[ j - 1].A) / nnz(H[ j ].chol.ld) - 1), 1.0);
+		else
+			H[j - 1].repeat = max(floor(nnz(H[j - 1].A) / nnz(H[ j ].A) - 1), 1.0);
 
+		// H = cell2mat(H);
+
+	// create precondition function
+		matrix pfun = make_preconditioner(H);
 }
 
