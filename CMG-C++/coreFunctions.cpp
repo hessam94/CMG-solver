@@ -45,6 +45,12 @@ matrix sparse()
     return m;
 }
 
+matrix sparse(mIndex*, int startIndex, int endIndex, int, int nc, int n)
+{
+    matrix m;
+    return m;
+}
+
 int nnz(matrix m)
 {
     return 0;// default
@@ -69,8 +75,32 @@ matrix matrix_mult(int multiplier, matrix m)
     return res;
 }
 
+matrix matrix_mult(matrix m1, matrix m2)
+{
+    matrix res;
+    return res;
+}
+
 matrix matrix_div(int divider, matrix m)
 {
     matrix res;
     return res;
+}
+
+matrix transpose(matrix m)
+{
+    matrix m_transpose;
+    return m_transpose;
+}
+
+void crop_matrix(const matrix& input_matrix, int left, int right, int up, int bottom, matrix& output_matrix)
+{
+    // select part of input_matrix and put it in the output_matrix
+}
+
+
+mSize* ldl_(const matrix& A, matrix& L, matrix& D)
+{
+    mSize* p = 0;
+    return p;
 }

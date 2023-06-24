@@ -6,7 +6,7 @@ using namespace std;
 
 void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A, int opts)
 {
-	matrix A_, dA_;
+	matrix A_, dA_, Rt;
 	shlevel S_init;
 	bool loop;
 	int j, h_nnz, nc;
@@ -93,10 +93,45 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
 			break;
 		}
 
+		// check for hierarchy stagnation for potentially bad reasons
+		h_nnz = h_nnz + nnz(A_);
+		if ((nc >= (n - 1)) || (h_nnz > (5 * nnz(H[0].A))))
+		{
+			H[j].islast = 1;
+			H[j].iterative = 1;
+			flag = 3; // indicates stagnation
+			cout << "CMG convergence may be slow due to matrix density.Future versions of CMG will eliminate this problem.";
+			break;
+		}
+		
+		
+		Rt = sparse(cI, 1, n, 1, nc, n); // cI should be cast to double sparse(double(cI),1:n,1,nc,n);
+		A_ = matrix_mult(Rt , matrix_mult(H[j].A, transpose(Rt)));
+
+		j = j + 1;
+		H[j] = S_init; // initialize level
 	}
 
-	int y = 0;
-	float z = 1;
+	// code for last hierarchy level
+	if (flag == 0) // no previous error
+	{
+		H[j].islast = 1;
+		H[j].iterative = 0;
+		matrix A_cropped;
+		crop_matrix(A_, 1, A.n - 1, 1, A.n - 1, A_cropped);
+		H[j].A = A_cropped;
+		// [L, D, p] = ldl(H{ j }.A, 'vector');
+		matrix D, L;
+		mSize* p = ldl_(A_cropped, L, D);
+		H[j].chol.ld = L;
+		H[j].chol.ldT = transpose(L);
+		//H[j].chol.d = matrix_div(1,diag(D)); // cholesky struct doens't have d
+		H[j].chol.p = p; // x = A * y = > y(p) = LT\(H{ j }.d.*(L\x(p)));
+	}
+			
+
+
+	
 
 }
 

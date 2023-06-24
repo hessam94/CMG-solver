@@ -14,6 +14,7 @@ void display(std::string s);
 int validate_input(const matrix& A, matrix& A_);
 shlevel level_init();
 matrix sparse();
+matrix sparse(mIndex*, int startIndex, int endIndex, int , int nc, int n); 
 int nnz(matrix m); // number of non zero item in a matrix, matlab builtin function
 matrix diag(matrix m);// need to figure out about this matlab function
 pair<mIndex*, int> steiner_group(matrix A, matrix dA_); // cI is mindex* so means array
@@ -31,7 +32,12 @@ T max_of_array(T* arr)
 }
 
 matrix matrix_mult(int multiplier, matrix m);
-
+matrix matrix_mult(matrix m1, matrix m2);
 matrix matrix_div(int divider, matrix m);
+matrix transpose(matrix m);
+
+void crop_matrix(const matrix& input_matrix, int left, int right, int up, int bottom, matrix& output_matrix);
+
+mSize* ldl_(const matrix& A, matrix& L, matrix& D); // function [L,D,p] = ldl_(A) we want to return p as int;
 
 #endif // !codeFunctions_H
