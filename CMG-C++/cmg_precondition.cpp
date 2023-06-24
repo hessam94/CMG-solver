@@ -43,3 +43,6 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
         A_ = A;
     }
 }
+
+
+int x = 0;
