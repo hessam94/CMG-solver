@@ -51,11 +51,14 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
 	H.push_back(S_init);
 
 	// A_ is Laplacian
-	// there is no .sd for this struct, in this version
-		//if (A_.n > A.n)
-		//    H[0].sd = true; // original matrix is strongly dominant
-		//else
-		//    H[0].sd = false;
+
+	// @@@@@@@@@@@@@@@@@@@@@
+	//There is no .sd for this struct, in this version
+	//if (A_.n > A.n)
+	//    H[0].sd = true; // original matrix is strongly dominant
+	//else
+	//    H[0].sd = false;
+	// @@@@@@@@@@@@@@@@@@@@@
 
 
    // construct hierarchy
@@ -79,10 +82,17 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
 
 		H[j].islast = 0;
 		H[j].A = A_;
+
+		// @@@@@@@@@@@@@@@@@@@@@
 		// H[j].invD =  ???   // 1. / (2 * dA_); no idea about what this means
+		// @@@@@@@@@@@@@@@@@@@@@
+		
 		H[j].cI = cI;
 		H[j].nc = nc;
+
+		// @@@@@@@@@@@@@@@@@@@@@
 		//H[ j ].R = sparse(cI, 1:n, ones(n, 1), nc, n);% added for efficiency
+		// @@@@@@@@@@@@@@@@@@@@@
 
 			// check for full contraction
 		if (nc == 1)
@@ -126,7 +136,11 @@ void cmg_precondition(vector<int> pfun, vector<shlevel> H, int& flag, matrix  A,
 		mSize* p = ldl_(A_cropped, L, D);
 		H[j].chol.ld = L;
 		H[j].chol.ldT = transpose(L);
+
+		// @@@@@@@@@@@@@@@@@@@@@
 		//H[j].chol.d = matrix_div(1,diag(D)); // cholesky struct doens't have d
+		// @@@@@@@@@@@@@@@@@@@@@
+		
 		H[j].chol.p = p; // x = A * y = > y(p) = LT\(H{ j }.d.*(L\x(p)));
 	}
 
