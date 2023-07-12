@@ -1,5 +1,5 @@
 # CMG-solver
-This package is the implementation of the Combinatorial Multigrid Preconditioner *[1]* in pure C++. The [original work](https://github.com/ikoutis/cmg-solver) is implemented by [Prof. Koutis](https://web.njit.edu/~ikoutis/) in MATALB. Combinatorial Multigrid is a preconditioner for diagonally dominant linear systems. CMG combines the strengths of multigrid with those of combinatorial preconditioning. 
+This package is the implementation of the Combinatorial Multigrid Preconditioner [*[1]*](https://github.com/hessam94/CMG-solver/tree/main#citation) in pure C++. The [original work](https://github.com/ikoutis/cmg-solver) is implemented by [Prof. Koutis](https://web.njit.edu/~ikoutis/) in MATALB. Combinatorial Multigrid is a preconditioner for diagonally dominant linear systems. CMG combines the strengths of multigrid with those of combinatorial preconditioning. 
 CMG has proved very effective for difficult linear systems arising in optimization problems and remains one of the fastest available solvers for graph Laplacians. It has received the [best paper award](https://ieee-ceda.org/awards/william-j-mccalla-iccad-best-paper-award) at ACME/IEEE ICCAD 2022.
 
 # Installation
