@@ -1,9 +1,9 @@
 # CMG-solver
 This package is the implementation of the Combinatorial Multigrid Preconditioner *[1]* in pure C++. The [original work](https://github.com/ikoutis/cmg-solver) is implemented by [Prof. Koutis](https://web.njit.edu/~ikoutis/) in MATALB. Combinatorial Multigrid is a preconditioner for diagonally dominant linear systems. CMG combines the strengths of multigrid with those of combinatorial preconditioning. 
-CMG has proved very effective for difficult linear systems arising in optimization problems and remains one of the fastest available solvers for graph Laplacians. It has been received the [best paper award](https://ieee-ceda.org/awards/william-j-mccalla-iccad-best-paper-award) at ACME/IEEE ICCAD 2022.
+CMG has proved very effective for difficult linear systems arising in optimization problems and remains one of the fastest available solvers for graph Laplacians. It has received the [best paper award](https://ieee-ceda.org/awards/william-j-mccalla-iccad-best-paper-award) at ACME/IEEE ICCAD 2022.
 
 # Installation
-This project is under development. you should add the `dll` path to your Environment Path. Also, to add the .lib and .h files, you should configure the Visual Studio.  
+This project is under development. you should add the `dll` path to your Environment Path. Also, to add the .lib and .h files, you should configure Visual Studio.  
 Configuration Properties -> VC++ Directories -> Include Directories -> Edit to add the directory that you placed .lib and .h files  
 and  
 Configuration Properties -> Linker -> Additional Dependencies -> Edit to add the name of the .lib files. 
