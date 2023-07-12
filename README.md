@@ -11,7 +11,7 @@ This project is under development.
 - Configuration **Properties -> VC++ Directories -> Include Directories -> Edit** to add the directory that you placed `.lib` and `.h` files
 - Configuration **Properties -> Linker -> Additional Dependencies -> Edit** to add the name of the .lib files. 
 
-In Visual Studio (project properties):
+## Visual Studio (project properties):
 - Add the headers folder to **VC++ Directories > Library Directories**
 - Add the headers folder and `headers\lib` folder to **C/C++ > General > Additional Include Directories**
 - Add the `headers\lib` folder to **Linker > General > Additional Library Directories**
