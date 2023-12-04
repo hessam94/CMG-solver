@@ -5,7 +5,7 @@
 using namespace std;
 void main()
 {
-	// test comment to be resolved before merge
+	// i changed this comment
 	cout << "Hello Cmg-solver..";
 	vector<int> pfun;
 	vector<shlevel>  H;
