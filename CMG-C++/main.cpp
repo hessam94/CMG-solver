@@ -5,6 +5,7 @@
 using namespace std;
 void main()
 {
+	// comment again
 	cout << "Hello Cmg-solver..";
 	vector<int> pfun;
 	vector<shlevel>  H;
